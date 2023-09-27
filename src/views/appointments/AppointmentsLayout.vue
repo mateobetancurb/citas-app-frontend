@@ -2,11 +2,13 @@
 
 <template>
 	<div class="flex justify-between">
-		<h1 class="text-2xl lg:text-4xl font-black text-white">Animal Hospital</h1>
+		<h1 class="text-2xl lg:text-4xl font-black text-white flex items-center">
+			Barbería Susa
+		</h1>
 		<div class="flex flex-col space-y-5">
 			<div class="flex gap-2 items-center">
 				<p class="text-white text-right">
-					Hola: <span class="font-bold">Sussana</span>
+					Hola: <span class="font-bold">Mateo</span>
 				</p>
 				<button
 					class="bg-red-600 hover:bg-red-700 p-2 rounded-xl transition-colors text-white"
