@@ -1,5 +1,8 @@
 <script setup>
+import { useAppointmentsStore } from "../stores/appointments";
 import { formatCurrency } from "../helpers";
+
+const appointmentsStore = useAppointmentsStore();
 
 defineProps({
 	service: {
@@ -19,6 +22,7 @@ defineProps({
 			</p>
 		</div>
 		<button
+			@click="appointmentsStore.onServiceSelected(service)"
 			type="button"
 			class="inline-flex items-center rounded-full bg-red-600 text-white p-2 shadow-lg hover:bg-red-700 transition-colors"
 		>
