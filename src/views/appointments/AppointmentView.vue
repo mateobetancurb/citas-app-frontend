@@ -12,7 +12,7 @@ const appointmentsStore = useAppointmentsStore();
 	>
 		Aún no has agregado servicios a tu cita
 	</h3>
-	<div v-if="appointmentsStore.services.length > 1">
+	<div v-else>
 		<h2 class="text-3xl font-extrabold mt-10 text-white">
 			Detalles de tu cita
 		</h2>
