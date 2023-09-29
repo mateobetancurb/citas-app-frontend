@@ -5,6 +5,7 @@ export const useAppointmentsStore = defineStore("appointments", () => {
 	const services = ref([]);
 	const appointmentDate = ref("");
 	const appointmentHours = ref([]);
+	const appointmentTime = ref("");
 
 	onMounted(() => {
 		const startHour = 7;
@@ -48,6 +49,7 @@ export const useAppointmentsStore = defineStore("appointments", () => {
 		services,
 		appointmentDate,
 		appointmentHours,
+		appointmentTime,
 		totalAmount,
 		noServicesSelected,
 		onServiceSelected,
