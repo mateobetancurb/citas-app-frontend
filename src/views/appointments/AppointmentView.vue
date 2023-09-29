@@ -11,6 +11,11 @@ const dateAppointmentFormatter = ref({
 	date: "DD/MM/YYYY",
 	month: "MMM",
 });
+
+const dDate = (date) => {
+	const today = new Date();
+	return date < today || date.getMonth() > today.getMonth() + 1;
+};
 </script>
 
 <template>
@@ -52,6 +57,7 @@ const dateAppointmentFormatter = ref({
 						i18n="es-CO"
 						as-single
 						no-input
+						:disable-date="dDate"
 						:formatter="dateAppointmentFormatter"
 						v-model="appointmentsStore.appointmentDate"
 					/>
