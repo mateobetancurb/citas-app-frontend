@@ -56,6 +56,17 @@ const dateAppointmentFormatter = ref({
 						v-model="appointmentsStore.appointmentDate"
 					/>
 				</div>
+				<div
+					class="flex-1 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-3 gap-5 mt-10 lg:mt-0"
+				>
+					<button
+						v-for="hour in appointmentsStore.appointmentHours"
+						:key="hour"
+						class="block text-blue-600 rounded-lg text-xl font-black p-3 bg-white hover:bg-blue-600 transition-colors hover:text-white"
+					>
+						{{ hour }}
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
