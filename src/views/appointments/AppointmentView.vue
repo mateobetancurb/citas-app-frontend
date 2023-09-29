@@ -75,7 +75,7 @@ const dateAppointmentFormatter = ref({
 				</div>
 			</div>
 		</div>
-		<div class="flex justify-end">
+		<div v-if="appointmentsStore.isValidReservation" class="flex justify-end">
 			<button
 				class="w-full md:w-auto bg-blue-700 p-3 rounded-lg font-black text-white hover:bg-blue-800 transition-colors"
 			>
