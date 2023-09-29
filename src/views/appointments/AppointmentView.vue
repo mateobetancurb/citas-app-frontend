@@ -83,6 +83,7 @@ const dDate = (date) => {
 		</div>
 		<div v-if="appointmentsStore.isValidReservation" class="flex justify-end">
 			<button
+				@click="appointmentsStore.createAppointment"
 				class="w-full md:w-auto bg-blue-700 p-3 rounded-lg font-black text-white hover:bg-blue-800 transition-colors"
 			>
 				Confirmar reservación
