@@ -57,17 +57,30 @@ const dateAppointmentFormatter = ref({
 					/>
 				</div>
 				<div
-					class="flex-1 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-3 gap-5 mt-10 lg:mt-0"
+					class="flex-1 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-3 gap-5 mt-10 lg:mt-0 mb-5"
 				>
 					<button
 						v-for="hour in appointmentsStore.appointmentHours"
 						:key="hour"
-						class="block text-blue-600 rounded-lg text-xl font-black p-3 bg-white hover:bg-blue-600 transition-colors hover:text-white"
+						@click="appointmentsStore.appointmentTime = hour"
+						class="block text-blue-600 rounded-lg text-xl font-black p-3 hover:bg-blue-600 hover:text-white transition-colors"
+						:class="
+							appointmentsStore.appointmentTime === hour
+								? 'bg-blue-600 text-white'
+								: 'bg-white'
+						"
 					>
 						{{ hour }}
 					</button>
 				</div>
 			</div>
+		</div>
+		<div class="flex justify-end">
+			<button
+				class="w-full md:w-auto bg-blue-700 p-3 rounded-lg font-black text-white hover:bg-blue-800 transition-colors"
+			>
+				Confirmar reservación
+			</button>
 		</div>
 	</div>
 </template>
