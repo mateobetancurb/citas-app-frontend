@@ -1,11 +1,15 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const password = ref("");
+</script>
 
 <template>
 	<div class="mb-10">
-		<h1 class="text-6xl font-extrabold text-white text-center ,mt-10">
-			Crea una cuenta
+		<h1 class="text-3xl font-extrabold text-white text-center ,mt-10">
+			¿No tienes una cuenta? Crea una
 		</h1>
-		<p class="text-xl text-white text-center">
+		<p class="text-lg text-white text-center">
 			...y empieza a agendar tus citas
 		</p>
 	</div>
@@ -40,6 +44,7 @@
 		>
 		</FormKit>
 		<FormKit
+			v-model="password"
 			type="password"
 			label="Contraseña"
 			name="password"
@@ -52,6 +57,7 @@
 		>
 		</FormKit>
 		<FormKit
+			v-if="password.trim().length > 7"
 			type="password"
 			label="Repite tu contraseña"
 			name="password_confirm"
