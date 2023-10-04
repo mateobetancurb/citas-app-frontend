@@ -23,6 +23,11 @@ const handleSubmit = async ({ password_confirm, ...formData }) => {
 		reset("registerForm");
 	} catch (error) {
 		console.log(error);
+		toast.open({
+			message: `Error: ${error.response.data.msg}`,
+			type: "error",
+			duration: 10000,
+		});
 	}
 };
 </script>
