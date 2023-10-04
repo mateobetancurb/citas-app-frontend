@@ -1,11 +1,16 @@
 <script setup>
-import { inject } from "vue";
+import { inject, computed } from "vue";
+import { reset } from "@formkit/vue";
 import AuthAPI from "../../api/AuthAPI";
 import { ref } from "vue";
 
 const toast = inject("toast");
 
 const password = ref("");
+
+const showConfirmPasswordInput = computed(() => {
+	return password.value && password.value.trim().length > 0;
+});
 
 const handleSubmit = async ({ password_confirm, ...formData }) => {
 	try {
@@ -15,6 +20,7 @@ const handleSubmit = async ({ password_confirm, ...formData }) => {
 			type: "success",
 			duration: 8000,
 		});
+		reset("registerForm");
 	} catch (error) {
 		console.log(error);
 	}
@@ -32,6 +38,7 @@ const handleSubmit = async ({ password_confirm, ...formData }) => {
 	</div>
 
 	<FormKit
+		id="registerForm"
 		type="form"
 		:actions="false"
 		incomplete-message="No se pudo crear la cuenta. Hay errores en el formulario"
@@ -67,7 +74,7 @@ const handleSubmit = async ({ password_confirm, ...formData }) => {
 			label="Contraseña"
 			name="password"
 			placeholder="Escribe aquí tu contraseña - Min 8 caracteres"
-			validation="required:trim|length:8"
+			validation="required:trim|length:1"
 			:validation-messages="{
 				required: 'Escribe una contraseña válida',
 				length: 'Debes escribir mínimo 8 caracteres',
@@ -75,7 +82,7 @@ const handleSubmit = async ({ password_confirm, ...formData }) => {
 		>
 		</FormKit>
 		<FormKit
-			v-if="password.trim().length > 7"
+			v-if="showConfirmPasswordInput"
 			type="password"
 			label="Repite tu contraseña"
 			name="password_confirm"
