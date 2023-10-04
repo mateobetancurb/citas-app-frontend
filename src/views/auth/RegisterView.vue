@@ -1,7 +1,16 @@
 <script setup>
+import AuthAPI from "../../api/AuthAPI";
 import { ref } from "vue";
 
 const password = ref("");
+
+const handleSubmit = async ({ password_confirm, ...data }) => {
+	try {
+		await AuthAPI.register(data);
+	} catch (error) {
+		console.log(error);
+	}
+};
 </script>
 
 <template>
@@ -18,6 +27,7 @@ const password = ref("");
 		type="form"
 		:actions="false"
 		incomplete-message="No se pudo crear la cuenta. Hay errores en el formulario"
+		@submit="handleSubmit"
 	>
 		<FormKit
 			type="text"
