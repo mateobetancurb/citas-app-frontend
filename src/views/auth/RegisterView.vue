@@ -1,12 +1,20 @@
 <script setup>
+import { inject } from "vue";
 import AuthAPI from "../../api/AuthAPI";
 import { ref } from "vue";
 
+const toast = inject("toast");
+
 const password = ref("");
 
-const handleSubmit = async ({ password_confirm, ...data }) => {
+const handleSubmit = async ({ password_confirm, ...formData }) => {
 	try {
-		await AuthAPI.register(data);
+		const { data } = await AuthAPI.register(formData);
+		toast.open({
+			message: data.msg,
+			type: "success",
+			duration: 8000,
+		});
 	} catch (error) {
 		console.log(error);
 	}
