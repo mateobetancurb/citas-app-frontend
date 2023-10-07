@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { useRouter } from "vue-router";
+</script>
 
 <template>
 	<div class="flex justify-between">
@@ -10,17 +12,21 @@
 				<p class="text-white text-right">
 					Hola: <span class="font-bold">Mateo</span>
 				</p>
-				<button
+				<RouterLink
+					:to="{ name: 'login' }"
 					class="bg-red-600 hover:bg-red-700 p-2 rounded-xl transition-colors text-white"
 					type="button"
 				>
 					Cerrar Sesión
-				</button>
+				</RouterLink>
 			</div>
 			<nav class="flex gap-2 items-center justify-end">
-				<button class="p-3 text-gray-200 font-black rounded-xl">
+				<RouterLink
+					:to="{ name: 'my-appointments' }"
+					class="p-3 text-gray-200 font-black rounded-xl"
+				>
 					Mis citas
-				</button>
+				</RouterLink>
 				<RouterLink
 					:to="{ name: 'new-appointment' }"
 					class="p-3 text-gray-200 rounded-xl bg-blue-700 hover:bg-blue-800 transition-colors"
