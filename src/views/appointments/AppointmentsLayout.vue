@@ -1,5 +1,7 @@
 <script setup>
-import { useRouter } from "vue-router";
+import { useAuthUserStore } from "../../stores/authUser";
+import { formatName } from "../../helpers/index.js";
+const authUserStore = useAuthUserStore();
 </script>
 
 <template>
@@ -10,7 +12,10 @@ import { useRouter } from "vue-router";
 		<div class="flex flex-col space-y-5">
 			<div class="flex gap-2 items-center">
 				<p class="text-white text-right">
-					Hola: <span class="font-bold">Mateo</span>
+					Hola:
+					<span class="font-bold">{{
+						formatName(authUserStore.getUserName)
+					}}</span>
 				</p>
 				<RouterLink
 					:to="{ name: 'login' }"
