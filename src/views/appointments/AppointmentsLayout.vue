@@ -17,13 +17,13 @@ const authUserStore = useAuthUserStore();
 						formatName(authUserStore.getUserName)
 					}}</span>
 				</p>
-				<RouterLink
-					:to="{ name: 'login' }"
+				<button
+					@click="authUserStore.userLogout"
 					class="bg-red-600 hover:bg-red-700 p-2 rounded-xl transition-colors text-white"
 					type="button"
 				>
 					Cerrar Sesión
-				</RouterLink>
+				</button>
 			</div>
 			<nav class="flex gap-2 items-center justify-end">
 				<RouterLink
