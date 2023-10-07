@@ -4,3 +4,8 @@ export const formatCurrency = (price) => {
 		currency: "USD",
 	});
 };
+
+export const formatName = (name) => {
+	const [firstName] = name.split(" ");
+	return firstName.charAt(0).toUpperCase() + firstName.slice(1);
+};
