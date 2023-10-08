@@ -9,4 +9,7 @@ export default {
 	getByDate(date) {
 		return api.get(`/appointments/create-appointment?date=${date}`);
 	},
+	getUserAppointments(userId) {
+		return api.get(`/users/${userId}/appointments`);
+	},
 };
