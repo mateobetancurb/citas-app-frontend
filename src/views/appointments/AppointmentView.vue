@@ -63,6 +63,7 @@ const dDate = (date) => {
 					/>
 				</div>
 				<div
+					v-if="appointmentsStore.isDateSelected"
 					class="flex-1 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-3 gap-5 mt-10 lg:mt-0 mb-5"
 				>
 					<button
