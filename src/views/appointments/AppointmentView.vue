@@ -69,8 +69,9 @@ const dDate = (date) => {
 					<button
 						v-for="hour in appointmentsStore.appointmentHours"
 						:key="hour"
+						:disabled="appointmentsStore.disableTime(hour) ? true : false"
 						@click="appointmentsStore.appointmentTime = hour"
-						class="block text-blue-600 rounded-lg text-xl font-black p-3 hover:bg-blue-600 hover:text-white transition-colors"
+						class="block text-blue-600 rounded-lg text-xl font-black p-3 hover:bg-blue-600 disabled:bg-white disabled:text-blue-600 hover:text-white transition-colors disabled:opacity-10"
 						:class="
 							appointmentsStore.appointmentTime === hour
 								? 'bg-blue-600 text-white'
