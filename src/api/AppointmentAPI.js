@@ -7,6 +7,6 @@ export default {
 		return api.post("/appointments/create-appointment", data);
 	},
 	getByDate(date) {
-		return api.get(`/appointments/create-appointment?date=${date}`, data);
+		return api.get(`/appointments/create-appointment?date=${date}`);
 	},
 };
