@@ -1,4 +1,5 @@
-import { parse, formatISO } from "date-fns";
+import { parse, formatISO, parseISO, format } from "date-fns";
+import es from "date-fns/locale/es";
 
 export const formatCurrency = (price) => {
 	return Number(price).toLocaleString("en-US", {
@@ -15,4 +16,10 @@ export const formatName = (name) => {
 export const formatDateISO = (date) => {
 	const newDate = parse(date, "dd/MM/yyyy", new Date());
 	return formatISO(newDate);
+};
+
+export const displayFormatDate = (date) => {
+	const newDate = parseISO(date);
+	const formatDate = format(newDate, "PPPP", { locale: es });
+	return formatDate;
 };
