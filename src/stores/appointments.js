@@ -2,9 +2,10 @@ import { ref, computed, onMounted, inject, watch } from "vue";
 import { defineStore } from "pinia";
 import { useRouter } from "vue-router";
 import AppointmentAPI from "../api/AppointmentAPI";
-import { formatDateISO } from "../helpers";
+import { formatDateISO, convertDateToDDMMYYYY } from "../helpers";
 
 export const useAppointmentsStore = defineStore("appointments", () => {
+	const appointmentId = ref("");
 	const services = ref([]);
 	const appointmentDate = ref("");
 	const appointmentHours = ref([]);
@@ -28,8 +29,25 @@ export const useAppointmentsStore = defineStore("appointments", () => {
 		if (appointmentDate.value === "") return;
 
 		const { data } = await AppointmentAPI.getByDate(appointmentDate.value);
-		appointmentsByDate.value = data;
+
+		if (appointmentId.value) {
+			appointmentsByDate.value = data.filter(
+				(appointment) => appointment._id !== appointmentId.value
+			);
+			appointmentTime.value = data.filter(
+				(appointment) => appointment._id === appointmentId.value
+			)[0].time;
+		} else {
+			appointmentsByDate.value = data;
+		}
 	});
+
+	function setSelectedAppointment({ appointment }) {
+		services.value = appointment.services;
+		appointmentDate.value = convertDateToDDMMYYYY(appointment.date);
+		appointmentTime.value = appointment.time;
+		appointmentId.value = appointment._id;
+	}
 
 	function onServiceSelected(service) {
 		if (
@@ -111,6 +129,7 @@ export const useAppointmentsStore = defineStore("appointments", () => {
 		totalAmount,
 		noServicesSelected,
 		isValidReservation,
+		setSelectedAppointment,
 		onServiceSelected,
 		createAppointment,
 		isDateSelected,
