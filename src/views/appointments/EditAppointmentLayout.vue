@@ -1,7 +1,19 @@
 <script setup>
+import { onMounted } from "vue";
 import { useRoute } from "vue-router";
+import AppointmentAPI from "../../api/AppointmentAPI";
 
 const route = useRoute();
+const { id } = route.params;
+
+onMounted(async () => {
+	try {
+		const { data } = await AppointmentAPI.getAppointmentById(id);
+		console.log(data);
+	} catch (error) {
+		console.log(error);
+	}
+});
 </script>
 
 <template>
