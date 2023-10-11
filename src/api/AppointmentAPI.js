@@ -15,4 +15,7 @@ export default {
 	getAppointmentById(id) {
 		return api.get(`/appointments/edit-appointment/${id}`);
 	},
+	updateAppointment(id, data) {
+		return api.put(`/appointments/edit-appointment/${id}`, data);
+	},
 };
