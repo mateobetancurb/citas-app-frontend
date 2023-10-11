@@ -51,6 +51,7 @@ export const useAuthUserStore = defineStore("authUser", () => {
 
 	return {
 		userAuth,
+		getUserAppointments,
 		getUserName,
 		userAppointments,
 		noAppointments,
