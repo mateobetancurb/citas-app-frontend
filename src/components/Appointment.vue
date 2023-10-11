@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from "vue-router";
 import { displayFormatDate, formatCurrency } from "../helpers";
 defineProps({
 	appointment: {
@@ -40,11 +41,12 @@ defineProps({
 			}}</span>
 		</p>
 		<div class="flex gap-2 items-center">
-			<button
+			<RouterLink
+				:to="{ name: 'edit-appointment', params: { id: appointment._id } }"
 				class="bg-blue-800 rounded-lg p-3 text-white text-sm font-black flex-1 md:flex-none hover:bg-blue-700 transition-colors"
 			>
 				Editar cita
-			</button>
+			</RouterLink>
 			<button
 				class="bg-red-600 rounded-lg p-3 text-white text-sm font-black flex-1 md:flex-none hover:bg-red-500 transition-colors"
 			>
