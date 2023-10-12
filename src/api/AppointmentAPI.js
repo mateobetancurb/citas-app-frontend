@@ -2,8 +2,6 @@ import api from "../lib/axios";
 
 export default {
 	create(data) {
-		const token = localStorage.getItem("AUTH_TOKEN");
-
 		return api.post("/appointments/create-appointment", data);
 	},
 	getByDate(date) {
@@ -17,5 +15,8 @@ export default {
 	},
 	updateAppointment(id, data) {
 		return api.put(`/appointments/edit-appointment/${id}`, data);
+	},
+	deleteAppointment(id) {
+		return api.delete(`/appointments/delete-appointment/${id}`);
 	},
 };
