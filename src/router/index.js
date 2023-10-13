@@ -81,6 +81,16 @@ const router = createRouter({
 					name: "login",
 					component: () => import("../views/auth/LoginView.vue"),
 				},
+				{
+					path: "olvide-contrasena",
+					name: "forgot-password",
+					component: () => import("../views/auth/ForgotPasswordView.vue"),
+				},
+				{
+					path: "olvide-contrasena/:token",
+					name: "new-password",
+					component: () => import("../views/auth/NewPasswordView.vue"),
+				},
 			],
 		},
 	],
