@@ -1,7 +1,26 @@
 <script setup>
-import { ref, computed } from "vue";
-const handleSubmit = () => {
-	console.log("enviando...");
+import { ref, computed, inject } from "vue";
+import { reset } from "@formkit/vue";
+import AuthAPI from "../../api/AuthAPI";
+
+const toast = inject("toast");
+
+const handleSubmit = async ({ email }) => {
+	try {
+		const { data } = await AuthAPI.forgotPassword({ email });
+		toast.open({
+			message: data.msg,
+			duration: 8000,
+			type: "success",
+		});
+		reset("resetPasswordForm");
+	} catch (error) {
+		toast.open({
+			message: error.response.data.msg,
+			duration: 5000,
+			type: "error",
+		});
+	}
 };
 
 const email = ref("");
@@ -21,7 +40,7 @@ const isEmailValid = computed(() => {
 		</p>
 	</div>
 	<FormKit
-		id="loginForm"
+		id="resetPasswordForm"
 		type="form"
 		:actions="false"
 		incomplete-message="No se pudo crear la cuenta. Hay errores en el formulario"
