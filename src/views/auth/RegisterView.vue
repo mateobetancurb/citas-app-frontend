@@ -1,8 +1,7 @@
 <script setup>
-import { inject, computed } from "vue";
+import { inject, computed, ref } from "vue";
 import { reset } from "@formkit/vue";
 import AuthAPI from "../../api/AuthAPI";
-import { ref } from "vue";
 
 const toast = inject("toast");
 
