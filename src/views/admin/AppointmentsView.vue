@@ -1,4 +1,5 @@
 <script setup>
+import AdminAppointment from "../../components/AdminAppointment.vue";
 import { useAuthUserStore } from "../../stores/authUser";
 
 const userStore = useAuthUserStore();
@@ -22,5 +23,12 @@ const userStore = useAuthUserStore();
 		>
 			Aún no hay citas agendadas
 		</p>
+		<div v-else class="grid grid-cols-1 gap-5 mt-10">
+			<AdminAppointment
+				v-for="appointment in userStore.userAppointments"
+				:key="appointment._id"
+				:appointment="appointment"
+			/>
+		</div>
 	</div>
 </template>
