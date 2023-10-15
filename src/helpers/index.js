@@ -29,3 +29,7 @@ export const convertDateToDDMMYYYY = (isoDate) => {
 	const formattedDate = format(newDate, "dd/MM/yyyy");
 	return formattedDate;
 };
+
+export const formatTime = (time) => {
+	return format(new Date(`1970-01-01T${time}`), "h:mm a", { locale: es });
+};
