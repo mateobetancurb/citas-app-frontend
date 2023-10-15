@@ -12,6 +12,11 @@ const router = createRouter({
 			component: HomeView,
 		},
 		{
+			path: "/admin",
+			name: "admin",
+			component: () => import("../views/admin/AdminLayout.vue"),
+		},
+		{
 			path: "/reservaciones",
 			name: "appointments",
 			component: AppointmentsLayout,
@@ -102,7 +107,7 @@ router.beforeEach(async (to, from, next) => {
 		try {
 			const { data } = await AuthAPI.auth();
 			if (data.user.admin) {
-				next("/admin");
+				next({ name: "admin" });
 			} else {
 				next();
 			}
