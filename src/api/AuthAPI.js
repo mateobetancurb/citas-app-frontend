@@ -13,6 +13,9 @@ export default {
 	auth() {
 		return api.get("/auth/user");
 	},
+	isAdmin() {
+		return api.get("/auth/admin");
+	},
 	forgotPassword(data) {
 		return api.post("/auth/forgot-password", data);
 	},
