@@ -7,7 +7,6 @@ const user = useAuthUserStore();
 <template>
 	<div class="flex justify-between">
 		<div>
-			<h1 class="text-2xl lg:text-6xl font-black text-white">Barbería Susa</h1>
 			<h2 class="text-xl lg:text-2xl font-black text-white">
 				Panel de Administración
 			</h2>
@@ -20,7 +19,7 @@ const user = useAuthUserStore();
 				</p>
 				<button
 					type="button"
-					class="bg-red-600 hover:bg-red-700 p-2 text-white uppercase text-xs font-extrabold rounded-lg"
+					class="bg-red-600 hover:bg-red-700 p-2 text-white text-xs font-extrabold rounded-lg"
 					@click="user.logout"
 				>
 					Cerrar Sesión
