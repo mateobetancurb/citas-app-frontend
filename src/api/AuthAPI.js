@@ -8,13 +8,13 @@ export default {
 		return api.get(`/auth/verify/${token}`);
 	},
 	login(data) {
-		return api.post("api/auth/login", data);
+		return api.post("/auth/login", data);
 	},
 	auth() {
-		return api.get("api/auth/user");
+		return api.get("/auth/user");
 	},
 	isAdmin() {
-		return api.get("api/auth/admin");
+		return api.get("/auth/admin");
 	},
 	forgotPassword(data) {
 		return api.post("/auth/forgot-password", data);
