@@ -23,7 +23,7 @@ defineProps({
 			</p>
 			<p class="text-gray-500 font-black">
 				Hora:
-				<span class="font-light"> {{ formatTime(appointment.time) }}</span>
+				<span class="font-light"> {{ appointment.time }}</span>
 			</p>
 		</div>
 
