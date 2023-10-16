@@ -49,7 +49,7 @@ const handleSubmit = async (formData) => {
 
 <template>
 	<div class="mb-10">
-		<h1 class="text-3xl font-extrabold text-white text-center ,mt-10">
+		<h1 class="text-3xl font-extrabold text-white text-center mt-10">
 			Iniciar sesión
 		</h1>
 		<p class="text-lg text-white text-center">
