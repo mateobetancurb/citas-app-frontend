@@ -10,7 +10,7 @@
   "dependencies": {
     "@formkit/themes": "^1.2.2",
     "@formkit/vue": "^1.2.2",
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "date-fns": "^2.30.0",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
